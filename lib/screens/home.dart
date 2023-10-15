@@ -7,10 +7,27 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: tmBGColor,
-      appBar: _buildAppBar(),
-      body: Container(
-        child: Text("This is the home screen"),
+        backgroundColor: tmBGWhite,
+        appBar: _buildAppBar(),
+        body: Container(
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          child: Column(
+              children: [searchBox(), Expanded(child: ListView(children: []))]),
+        ));
+  }
+
+  Widget searchBox() {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 15),
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(20)),
+      child: TextField(
+        decoration: InputDecoration(
+            hintText: "Search",
+            border: InputBorder.none,
+            prefixIcon: Icon(Icons.search),
+            contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15)),
       ),
     );
   }
